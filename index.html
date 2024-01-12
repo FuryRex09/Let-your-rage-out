@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smash your keyboard here</title>
+</head>
+<body>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: hsl(205, 40%, 90%);
+        }
+
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4vw;
+            font-family: monospace;
+            height: 100vh;
+        }
+    </style>
+
+    <div class="counter">Start Smashing</div>
+
+    <script>
+        const counter = document.querySelector(".counter");
+        var presses = 0;
+        var smashes = "o";
+
+        document.addEventListener('keydown', function(event) {
+            console.log("Key pressed");
+            presses = presses + 1;
+            smashes = presses.toString();
+            console.log(presses + "and" + smashes)
+            counter.innerHTML = smashes;
+        });
+    </script>
+
+    
+</body>
+</html>
