@@ -21,18 +21,35 @@
             font-family: monospace;
             height: 100vh;
         }
+
+        .multiplier {
+            padding: 2vw;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            font-size: 1vw;
+            font-family: monospace;
+            height: 100vh;
+        }
     </style>
+
+    <div class="multiplier">Multiplier (max 1000):<input type="number" id="multiplier" name="multiplier" min="1" max="1000" maxlength="4" value="1" pattern="^.{1,2}$"></div>
 
     <div class="counter">Start Smashing</div>
 
     <script>
         const counter = document.querySelector(".counter");
+        var multiplier = document.getElementById("multiplier").value;
         var presses = 0;
         var smashes = "o";
 
         document.addEventListener('keydown', function(event) {
+            multiplier = document.getElementById("multiplier").value;
+            if (multiplier > 1000) {
+                multiplier = 1000;
+            };
             console.log("Key pressed");
-            presses = presses + 1;
+            presses = presses + 1 * multiplier;
             smashes = presses.toString();
             console.log(presses + "and" + smashes)
             counter.innerHTML = smashes;
